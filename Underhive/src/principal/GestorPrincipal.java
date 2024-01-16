@@ -19,11 +19,24 @@ public class GestorPrincipal {
 	public static int fps = 0;
 	private static int aps = 0;
 
+	private static boolean juegoIniciado = false;
+
 	private GestorPrincipal(final String titulo, final int ancho, final int alto) {
 		this.titulo = titulo;
 		this.ancho = ancho;
 		this.alto = alto;
 	}
+
+//	public static void inicioJuego() {
+//		if (!juegoIniciado) {
+//			juegoIniciado = true;
+//			GestorPrincipal gp = new GestorPrincipal("Underhive", Constantes.ANCHO_PANTALLA_COMPLETA,
+//					Constantes.ALTO_PANTALLA_COMPLETA);
+//
+//			gp.iniciarJuego();
+//			gp.iniciarBuclePrincipal();
+//		}
+//	}
 
 	public static void main(String[] args) {
 		GestorPrincipal gp = new GestorPrincipal("Underhive", Constantes.ANCHO_PANTALLA_COMPLETA,
