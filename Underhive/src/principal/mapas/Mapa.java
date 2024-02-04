@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import principal.Constantes;
 import principal.ElementosPrincipales;
 import principal.control.GestorControles;
+import principal.entes.Enemigo;
+import principal.entes.RegistroEnemigos;
 import principal.herramientas.CargadorRecursos;
 import principal.herramientas.DibujoDebug;
 import principal.inventario.ContenedorObjetos;
@@ -34,6 +36,7 @@ public class Mapa {
 
 	public ArrayList<ContenedorObjetos> objetosMapa;
 
+	public final ArrayList<Enemigo> enemigos;
 	private final int[] sprites;
 
 	private final int MARGEN_X = Constantes.ANCHO_JUEGO / 2 - Constantes.LADO_SPRITE / 2;
@@ -79,11 +82,28 @@ public class Mapa {
 
 		zonaSalida = new Rectangle(0, 0, 0, 0);
 
-		if (partes.length > 7) {
-			String informacionObjetos = partes[8];
-			objetosMapa = asignarObjetos(informacionObjetos);
-		}
+		String informacionObjetos = partes[8];
+		objetosMapa = asignarObjetos(informacionObjetos);
 
+		String informacionEnemigos = partes[9];
+		enemigos = asignarEnemigos(informacionEnemigos);
+
+	}
+
+	private ArrayList<Enemigo> asignarEnemigos(final String informacionEnemigos) {
+		ArrayList<Enemigo> enemigos = new ArrayList<>();
+
+		String[] informacionEnemigosSeparada = informacionEnemigos.split("#");
+		for (int i = 0; i < informacionEnemigosSeparada.length; i++) {
+			String[] informacionEnemigoActual = informacionEnemigosSeparada[i].split(":");
+			String[] coordenadas = informacionEnemigoActual[0].split(",");
+			String idEnemigo = informacionEnemigoActual[1];
+
+			Enemigo enemigo = RegistroEnemigos.obtenerEnemigo(Integer.parseInt(idEnemigo));
+			enemigo.establecerPosicion(Double.parseDouble(coordenadas[0]), Double.parseDouble(coordenadas[1]));
+			enemigos.add(enemigo);
+		}
+		return enemigos;
 	}
 
 	private Sprite[] asignarSprites(final String[] partesPaleta, final String[] hojasSeparadas) {
@@ -271,6 +291,15 @@ public class Mapa {
 						- ElementosPrincipales.jugador.obtenerPosicionYInt() + MARGEN_Y;
 
 				contenedor.dibujar(g, puntoX, puntoY);
+			}
+		}
+		if (!enemigos.isEmpty()) {
+			for (Enemigo enemigo : enemigos) {
+				final int puntoX = (int) enemigo.obtenerPosicionX() * Constantes.LADO_SPRITE
+						- (int) ElementosPrincipales.jugador.obtenerPosicionX() + MARGEN_X;
+				final int puntoY = (int) enemigo.obtenerPosicionY() * Constantes.LADO_SPRITE
+						- (int) ElementosPrincipales.jugador.obtenerPosicionY() + MARGEN_Y;
+				enemigo.dibujar(g, puntoX, puntoY);
 			}
 		}
 	}

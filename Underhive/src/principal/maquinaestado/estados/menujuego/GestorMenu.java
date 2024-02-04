@@ -39,11 +39,18 @@ public class GestorMenu implements EstadoJuego {
 			if (sd.obtenerRaton().obtenerClick() && sd.obtenerRaton().obtenerRectanguloPosicion()
 					.intersects(secciones[i].obtenerEtiquetaMenuEscalada())) {
 
+				if (secciones[i] instanceof MenuEquipo) {
+					MenuEquipo seccion = (MenuEquipo) secciones[i];
+					if (seccion.objetoSeleccionado != null) {
+						seccion.eliminarObjetoSeleccionado();
+					}
+				}
+
 				seccionActual = secciones[i];
 			}
 		}
-		seccionActual.actualizar();
 
+		seccionActual.actualizar();
 	}
 
 	public void dibujar(final Graphics g) {

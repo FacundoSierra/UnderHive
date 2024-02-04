@@ -18,7 +18,7 @@ public class GestorPrincipal {
 
 	public static int fps = 0;
 	private static int aps = 0;
-
+//	private Sonido musica = new Sonido("recursos/sonidos/musica.wav");
 	private static boolean juegoIniciado = false;
 
 	private GestorPrincipal(final String titulo, final int ancho, final int alto) {
@@ -27,28 +27,42 @@ public class GestorPrincipal {
 		this.alto = alto;
 	}
 
-//	public static void inicioJuego() {
+//	public void iniciarJuegoDesdeEscena() {
 //		if (!juegoIniciado) {
 //			juegoIniciado = true;
-//			GestorPrincipal gp = new GestorPrincipal("Underhive", Constantes.ANCHO_PANTALLA_COMPLETA,
-//					Constantes.ALTO_PANTALLA_COMPLETA);
-//
-//			gp.iniciarJuego();
-//			gp.iniciarBuclePrincipal();
+//			enFuncionamiento = true;
+//			inicializar();
+//			iniciarBuclePrincipal();
 //		}
 //	}
 
 	public static void main(String[] args) {
+
+		System.setProperty("sun.java2d.d3d", "True");
+		System.setProperty("sun.java2d.ddforcevram", "True");
+
+//		System.setProperty("sun.java2d.transaccel", "True");
 		GestorPrincipal gp = new GestorPrincipal("Underhive", Constantes.ANCHO_PANTALLA_COMPLETA,
 				Constantes.ALTO_PANTALLA_COMPLETA);
 
 		gp.iniciarJuego();
 		gp.iniciarBuclePrincipal();
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Scene1 frame = new Scene1();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 	}
 
 	private void iniciarJuego() {
 		enFuncionamiento = true;
 		inicializar();
+		// musica.repetir();
 
 	}
 

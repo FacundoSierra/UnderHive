@@ -29,10 +29,10 @@ public class RegistroObjetos {
 			break;
 		// 500 - 599: armas
 		case 500:
-			objeto = new Pistola(idObjeto, "Arma por defecto", "", 1, 3);
+			objeto = new Pistola(idObjeto, "Arma por defecto", "", 2, 4, false, true, 0.4);
 			break;
 		case 599:
-			objeto = new Desarmado(idObjeto, "Desarmado", "", 0, 1);
+			objeto = new Desarmado(idObjeto, "Desarmado", "", 1, 2, false, false, 0);
 			break;
 		}
 

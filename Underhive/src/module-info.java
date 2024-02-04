@@ -7,4 +7,5 @@
  */
 module Underhive {
 	requires java.desktop;
+	requires json.simple;
 }

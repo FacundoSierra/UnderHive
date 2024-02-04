@@ -8,6 +8,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,6 +18,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 
 public class CargadorRecursos {
 	public static BufferedImage cargarImagenCompatibleOpaca(final String ruta) {
@@ -127,4 +132,25 @@ public class CargadorRecursos {
 
 		return fuente;
 	}
+
+	public static Clip cargarSonido(final String ruta) {
+		Clip clip = null;
+		InputStream is = null;
+		try {
+			try {
+				is = new FileInputStream(ruta);
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
+			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat());
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(ais);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return clip;
+	}
+
 }

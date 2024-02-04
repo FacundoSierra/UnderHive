@@ -26,6 +26,15 @@ public class Inventario {
 
 	}
 
+	public void recogerObjetos(final ObjetoUnicoTiled out) {
+		Objeto objeto = out.obtenerObjeto();
+		if (objetoExiste(objeto)) {
+			incrementarObjeto(objeto, objeto.obtenerCantidad());
+		} else {
+			objetos.add(objeto);
+		}
+	}
+
 	public boolean incrementarObjeto(final Objeto objeto, final int cantidad) {
 		boolean incrementado = false;
 

@@ -23,15 +23,18 @@ public class Constantes {
 	public static int CENTRO_VENTANA_X = ANCHO_JUEGO / 2;
 	public static int CENTRO_VENTANA_Y = ALTO_JUEGO / 2;
 
+	public static int MARGEN_X = ANCHO_JUEGO / 2 - LADO_SPRITE / 2;
+	public static int MARGEN_Y = ALTO_JUEGO / 2 - LADO_SPRITE / 2;
+
 	public static String RUTA_MAPA_INICIAL = "recursos/mapas/01.U";
 	public static String RUTA_ICONO_RATON = "recursos/imagenes/iconos/iconoCursor.png";
 	public static String RUTA_PERSONAJE = "recursos/imagenes/hojaspersonajes/1.png";
-	public static String RUTA_PERSONAJE_ROJO = "recursos/imagenes/hojaspersonajes/2.png";
+	public static String RUTA_PERSONAJE_CON_ARMA = "recursos/imagenes/hojaspersonajes/2.png";
 	public static String RUTA_ICONO_VENTANA = "recursos/imagenes/iconos/U.png";
 	public static Font RUTA_FUENTE = CargadorRecursos.cargarFuente("recursos/fuentes/px10.ttf");
 	public static String RUTA_OBJETOS = "recursos/imagenes/hojasObjetos/1.png";
 	public static String RUTA_OBJETOS_ARMAS = "recursos/imagenes/hojasArmas/armas.png";
-
+	public static String RUTA_ENEMIGOS = "recursos/imagenes/hojaEnemigos/";
 	public static final Color COLOR_VERDE = new Color(0xff136b5a);
 	public static final Color COLOR_AMARILLO = new Color(0xffeaaa00);
 	public static final Color COLOR_AZUL = new Color(0xff25268a);

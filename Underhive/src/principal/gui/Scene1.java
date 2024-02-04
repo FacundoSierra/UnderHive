@@ -39,7 +39,10 @@ public class Scene1 extends JFrame {
 		configurarBotonTransparente(botonPlay);
 		botonPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+//				GestorPrincipal gp = new GestorPrincipal("Underhive", Constantes.ANCHO_PANTALLA_COMPLETA,
+//						Constantes.ALTO_PANTALLA_COMPLETA);
+//				gp.iniciarJuegoDesdeEscena();
+//				dispose(); // Cierra la ventana de la escena
 			}
 		});
 

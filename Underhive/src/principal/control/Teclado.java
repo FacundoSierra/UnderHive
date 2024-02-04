@@ -14,6 +14,7 @@ public class Teclado implements KeyListener {
 	public boolean corriendo = false;
 	public boolean debug = false;
 	public boolean inventarioActivo = false;
+	public boolean atacando = false;
 
 	// tecla pulsada// tecla tecleada
 	public void keyTyped(KeyEvent e) {
@@ -47,6 +48,9 @@ public class Teclado implements KeyListener {
 		case KeyEvent.VK_E:
 			inventarioActivo = !inventarioActivo;
 			break;
+		case KeyEvent.VK_SPACE:
+			atacando = true;
+			break;
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
 		}
@@ -72,6 +76,9 @@ public class Teclado implements KeyListener {
 			break;
 		case KeyEvent.VK_SHIFT:
 			corriendo = false;
+			break;
+		case KeyEvent.VK_SPACE:
+			atacando = false;
 			break;
 
 		}

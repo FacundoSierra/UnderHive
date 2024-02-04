@@ -219,4 +219,14 @@ public class MenuEquipo extends SeccionMenu {
 		g.setColor(Constantes.COLOR_VERDE);
 	}
 
+	public Objeto obtenerObjetoEliminado() {
+		return objetoSeleccionado;
+
+	}
+
+	public void eliminarObjetoSeleccionado() {
+		objetoSeleccionado = null;
+
+	}
+
 }

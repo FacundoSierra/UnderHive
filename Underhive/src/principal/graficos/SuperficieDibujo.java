@@ -61,7 +61,7 @@ public class SuperficieDibujo extends Canvas {
 		g.setFont(Constantes.RUTA_FUENTE);
 
 		DibujoDebug.dibujarRectanguloRelleno(g, 0, 0, Constantes.ANCHO_PANTALLA_COMPLETA,
-				Constantes.ALTO_PANTALLA_COMPLETA, Color.black);
+				Constantes.ALTO_PANTALLA_COMPLETA, Color.cyan);
 
 		if (Constantes.FACTOR_ESCALADO_X != 1.0 || Constantes.FACTOR_ESCALADO_Y != 1.0) {
 			g.scale(Constantes.FACTOR_ESCALADO_X, Constantes.FACTOR_ESCALADO_Y);
